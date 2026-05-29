@@ -3,124 +3,94 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>DACO - Monitoreo de Precios de Gasolina</title>
+    <title>Precios de Gasolina - PR</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-    <style>
-        .branding-blue { background-color: #003366; }
-        .branding-gold { color: #ccaa00; }
-        .border-gold { border-color: #ccaa00; }
-    </style>
 </head>
 <body class="bg-slate-50 min-h-screen font-sans">
-    <nav class="branding-blue text-white p-6 shadow-xl border-b-4 border-gold">
-        <div class="container mx-auto">
-            <div class="flex flex-col md:flex-row justify-between items-center gap-4">
-                <div class="flex items-center gap-3">
-                    <i class="fas fa-balance-scale text-3xl branding-gold"></i>
-                    <div>
-                        <h1 class="text-xl font-bold tracking-tight">DACO</h1>
-                        <p class="text-xs uppercase tracking-widest text-blue-200">Departamento de Asuntos al Consumidor</p>
-                    </div>
-                </div>
-                <div class="text-right">
-                    <span class="bg-blue-900 px-4 py-2 rounded-lg border border-blue-700 text-sm">
-                        <i class="far fa-calendar-alt mr-2"></i> Datos Oficiales: www.daco.pr.gov
-                    </span>
-                </div>
+    <!-- Header Blanco y Rojo -->
+    <nav class="bg-white border-b-4 border-red-600 p-4 shadow-md">
+        <div class="container mx-auto flex justify-between items-center">
+            <div class="flex items-center gap-2">
+                <i class="fas fa-gas-pump text-red-600 text-2xl"></i>
+                <h1 class="text-xl font-black text-slate-800">GASOLINA<span class="text-red-600">PR</span></h1>
+            </div>
+            <div class="text-right">
+                <p class="text-[10px] font-bold text-slate-400 uppercase tracking-widest">Información Oficial</p>
+                <p class="text-xs font-bold text-red-600 italic">Fuente: daco.pr.gov</p>
             </div>
         </div>
     </nav>
 
-    <main class="container mx-auto p-4 md:p-8">
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-12">
-            <div class="bg-white p-6 rounded-xl shadow-sm border-t-4 border-blue-600">
-                <p class="text-gray-500 text-sm font-bold uppercase mb-2">Tope Máximo Regular</p>
-                <div class="flex items-baseline gap-2">
-                    <span class="text-4xl font-black text-slate-800">$0.93</span>
-                    <span class="text-gray-400">/litro</span>
+    <main class="container mx-auto p-4 max-w-4xl">
+        <!-- Banner de Precios del DACO -->
+        <div class="bg-red-600 rounded-2xl p-6 text-white shadow-xl mb-8">
+            <h2 class="text-center font-bold uppercase tracking-tighter text-sm mb-4 opacity-90">Precios Máximos Sugeridos por DACO</h2>
+            <div class="grid grid-cols-3 gap-2 text-center">
+                <div class="bg-white/10 rounded-xl p-3 border border-white/20">
+                    <p class="text-[10px] uppercase font-bold">Regular</p>
+                    <p class="text-2xl font-black">$0.93</p>
                 </div>
-                <p class="text-xs text-green-600 mt-2"><i class="fas fa-check-circle"></i> Actualizado según DACO</p>
-            </div>
-            <div class="bg-white p-6 rounded-xl shadow-sm border-t-4 border-blue-600">
-                <p class="text-gray-500 text-sm font-bold uppercase mb-2">Tope Máximo Premium</p>
-                <div class="flex items-baseline gap-2">
-                    <span class="text-4xl font-black text-slate-800">$1.11</span>
-                    <span class="text-gray-400">/litro</span>
+                <div class="bg-white/10 rounded-xl p-3 border border-white/20">
+                    <p class="text-[10px] uppercase font-bold">Premium</p>
+                    <p class="text-2xl font-black">$1.11</p>
                 </div>
-                <p class="text-xs text-green-600 mt-2"><i class="fas fa-check-circle"></i> Actualizado según DACO</p>
-            </div>
-            <div class="bg-white p-6 rounded-xl shadow-sm border-t-4 border-gold">
-                <p class="text-gray-500 text-sm font-bold uppercase mb-2">¿Precios más altos?</p>
-                <a href="https://www.daco.pr.gov/servicios/radicacion-de-querellas/" target="_blank" class="inline-block bg-amber-500 hover:bg-amber-600 text-white font-bold py-2 px-6 rounded-lg transition text-sm">
-                    Radicar Querella en DACO
-                </a>
+                <div class="bg-white/10 rounded-xl p-3 border border-white/20">
+                    <p class="text-[10px] uppercase font-bold">Diesel</p>
+                    <p class="text-2xl font-black">$0.97</p>
+                </div>
             </div>
         </div>
 
-        <div class="bg-white rounded-2xl shadow-lg overflow-hidden border border-gray-200">
-            <div class="branding-blue p-4 text-white font-bold flex justify-between">
-                <span>Rangos Oficiales por Mayorista</span>
-                <span class="text-xs opacity-75">Fuente: daco.pr.gov</span>
+        <h3 class="text-slate-800 font-bold mb-4 flex items-center gap-2 px-2">
+            <i class="fas fa-list-ul text-red-600"></i> Rangos por Mayorista
+        </h3>
+
+        <div class="grid gap-3">
+            <!-- Mayoristas con datos de DACO -->
+            <div class="bg-white p-4 rounded-xl shadow-sm border border-slate-200 flex justify-between items-center">
+                <span class="font-bold text-slate-700">PUMA</span>
+                <div class="text-right">
+                    <p class="text-xs text-slate-400">Regular / Premium</p>
+                    <p class="font-black text-slate-800">$0.89 - $1.03</p>
+                </div>
             </div>
-            <div class="overflow-x-auto">
-                <table class="w-full text-left">
-                    <thead class="bg-gray-100 text-gray-600 text-sm uppercase">
-                        <tr>
-                            <th class="p-4">Mayorista</th>
-                            <th class="p-4">Regular (L)</th>
-                            <th class="p-4">Premium (L)</th>
-                            <th class="p-4">Diesel (L)</th>
-                        </tr>
-                    </thead>
-                    <tbody class="divide-y divide-gray-100 text-slate-700">
-                        <tr>
-                            <td class="p-4 font-bold">Puma Energy</td>
-                            <td class="p-4">0.887 - 0.937</td>
-                            <td class="p-4">1.027 - 1.117</td>
-                            <td class="p-4">0.897 - 0.977</td>
-                        </tr>
-                        <tr>
-                            <td class="p-4 font-bold">Sol Puerto Rico (Shell)</td>
-                            <td class="p-4">0.897 - 0.937</td>
-                            <td class="p-4">1.037 - 1.117</td>
-                            <td class="p-4">0.907 - 0.977</td>
-                        </tr>
-                        <tr>
-                            <td class="p-4 font-bold">TotalEnergies (Gulf)</td>
-                            <td class="p-4">0.877 - 0.937</td>
-                            <td class="p-4">1.017 - 1.117</td>
-                            <td class="p-4">0.887 - 0.977</td>
-                        </tr>
-                        <tr>
-                            <td class="p-4 font-bold">Best Petroleum (Mobil)</td>
-                            <td class="p-4">0.867 - 0.917</td>
-                            <td class="p-4">1.007 - 1.097</td>
-                            <td class="p-4">0.897 - 0.957</td>
-                        </tr>
-                        <tr>
-                            <td class="p-4 font-bold">Empire Gas</td>
-                            <td class="p-4">0.857 - 0.907</td>
-                            <td class="p-4">0.997 - 1.087</td>
-                            <td class="p-4">0.887 - 0.947</td>
-                        </tr>
-                    </tbody>
-                </table>
+
+            <div class="bg-white p-4 rounded-xl shadow-sm border border-slate-200 flex justify-between items-center">
+                <span class="font-bold text-slate-700">SHELL</span>
+                <div class="text-right">
+                    <p class="text-xs text-slate-400">Regular / Premium</p>
+                    <p class="font-black text-slate-800">$0.90 - $1.04</p>
+                </div>
+            </div>
+
+            <div class="bg-white p-4 rounded-xl shadow-sm border border-slate-200 flex justify-between items-center">
+                <span class="font-bold text-slate-700">GULF</span>
+                <div class="text-right">
+                    <p class="text-xs text-slate-400">Regular / Premium</p>
+                    <p class="font-black text-slate-800">$0.88 - $1.02</p>
+                </div>
+            </div>
+
+            <div class="bg-white p-4 rounded-xl shadow-sm border border-slate-200 flex justify-between items-center">
+                <span class="font-bold text-slate-700">MOBIL</span>
+                <div class="text-right">
+                    <p class="text-xs text-slate-400">Regular / Premium</p>
+                    <p class="font-black text-slate-800">$0.87 - $1.01</p>
+                </div>
             </div>
         </div>
 
-        <div class="mt-8 p-6 bg-blue-50 rounded-xl border border-blue-100">
-            <h4 class="font-bold text-blue-900 mb-2 underline">Información Importante del Gobierno</h4>
-            <p class="text-sm text-blue-800 leading-relaxed italic">
-                De acuerdo con el portal oficial <strong>daco.pr.gov</strong>, los precios en bomba no deben exceder los márgenes de ganancia establecidos. Si el precio en su estación local supera estos rangos, usted tiene el derecho legal de reportarlo directamente mediante el enlace de querellas superior.
-            </p>
+        <!-- Botón de Acción -->
+        <div class="mt-8 text-center">
+            <a href="https://www.daco.pr.gov/" target="_blank" class="inline-block bg-slate-800 text-white font-bold py-3 px-8 rounded-full shadow-lg hover:bg-red-600 transition-colors uppercase text-xs tracking-widest">
+                Ver fuente original en DACO.PR.GOV
+            </a>
         </div>
     </main>
 
-    <footer class="p-8 text-center">
-        <a href="https://www.daco.pr.gov/" target="_blank" class="text-blue-900 font-bold underline hover:text-blue-700">
-            Click aquí para ir al portal oficial de DACO
-        </a>
+    <footer class="mt-12 p-8 text-center text-slate-400 text-[10px] uppercase font-bold tracking-widest">
+        &copy; 2024 Monitoreo de Precios PR
     </footer>
 </body>
 </html>
