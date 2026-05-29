@@ -13,7 +13,6 @@
     </style>
 </head>
 <body class="bg-slate-50 min-h-screen font-sans">
-    <!-- Header Institucional -->
     <nav class="branding-blue text-white p-6 shadow-xl border-b-4 border-gold">
         <div class="container mx-auto">
             <div class="flex flex-col md:flex-row justify-between items-center gap-4">
@@ -21,20 +20,21 @@
                     <i class="fas fa-balance-scale text-3xl branding-gold"></i>
                     <div>
                         <h1 class="text-xl font-bold tracking-tight">DACO</h1>
-                        <p class="text-xs uppercase tracking-widest text-blue-200">Departamento de Asuntos al Consumidor</p>
+                        <p class="text-xs uppercase tracking-widest text-blue-200">Precios Basados en daco.pr.gov</p>
                     </div>
                 </div>
                 <div class="text-right">
-                    <span class="bg-blue-900 px-4 py-2 rounded-lg border border-blue-700 text-sm">
-                        <i class="far fa-calendar-alt mr-2"></i> Monitoreo: Datos en Vivo (DACO)
-                    </span>
+                    <a href="https://www.daco.pr.gov/ordenes-de-congelacion-de-precios-y-margenes-de-beneficios-en-la-venta-de-gasolina-diesel-y-gas-licuado/" target="_blank" class="bg-blue-900 px-4 py-2 rounded-lg border border-blue-700 text-sm hover:bg-blue-800 transition">
+                        <i class="fas fa-external-link-alt mr-2"></i> Orden de Congelación DACO
+                    </a>
                 </div>
             </div>
         </div>
     </nav>
 
     <main class="container mx-auto p-4 md:p-8">
-        <!-- Dashboard de Topes -->
+        <!-- Dashboard de Topes para HOY -->
+        <h2 class="text-2xl font-black text-slate-800 mb-6 text-center">Topes de Precios Permitidos Hoy</h2>
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-12">
             <div class="bg-white p-6 rounded-xl shadow-sm border-t-4 border-blue-600">
                 <p class="text-gray-500 text-sm font-bold uppercase mb-2">Precio Máximo Regular</p>
@@ -42,7 +42,7 @@
                     <span class="text-4xl font-black text-slate-800">$0.95</span>
                     <span class="text-gray-400">/litro</span>
                 </div>
-                <p class="text-xs text-green-600 mt-2"><i class="fas fa-check-circle"></i> Vigente hoy</p>
+                <p class="text-xs text-green-600 mt-2 font-bold"><i class="fas fa-info-circle"></i> Info Extraída de daco.pr.gov</p>
             </div>
             <div class="bg-white p-6 rounded-xl shadow-sm border-t-4 border-blue-600">
                 <p class="text-gray-500 text-sm font-bold uppercase mb-2">Precio Máximo Premium</p>
@@ -50,21 +50,20 @@
                     <span class="text-4xl font-black text-slate-800">$1.13</span>
                     <span class="text-gray-400">/litro</span>
                 </div>
-                <p class="text-xs text-green-600 mt-2"><i class="fas fa-check-circle"></i> Vigente hoy</p>
+                <p class="text-xs text-green-600 mt-2 font-bold"><i class="fas fa-info-circle"></i> Info Extraída de daco.pr.gov</p>
             </div>
             <div class="bg-white p-6 rounded-xl shadow-sm border-t-4 border-gold">
-                <p class="text-gray-500 text-sm font-bold uppercase mb-2">Reportar Abuso</p>
+                <p class="text-gray-500 text-sm font-bold uppercase mb-2">Sanciones</p>
                 <a href="https://www.daco.pr.gov/servicios/radicacion-de-querellas/" target="_blank" class="inline-block bg-amber-500 hover:bg-amber-600 text-white font-bold py-2 px-6 rounded-lg transition text-sm">
-                    Radicar Querella Online
+                    Radicar Querella por Sobreprecio
                 </a>
             </div>
         </div>
 
-        <!-- Tabla de Mayoristas -->
+        <!-- Tabla Mayoristas -->
         <div class="bg-white rounded-2xl shadow-lg overflow-hidden border border-gray-200">
-            <div class="branding-blue p-4 text-white font-bold flex justify-between">
-                <span>Rango de Precios por Mayorista (Oficial DACO)</span>
-                <span class="text-xs opacity-75">Fuente: daco.pr.gov</span>
+            <div class="branding-blue p-4 text-white font-bold">
+                Precios Máximos por Mayoristas Reportados
             </div>
             <div class="overflow-x-auto">
                 <table class="w-full text-left">
@@ -73,49 +72,44 @@
                             <th class="p-4">Mayorista</th>
                             <th class="p-4">Regular (L)</th>
                             <th class="p-4">Premium (L)</th>
-                            <th class="p-4">Diesel (L)</th>
                         </tr>
                     </thead>
-                    <tbody class="divide-y divide-gray-100 italic text-slate-700">
+                    <tbody class="divide-y divide-gray-100">
                         <tr>
-                            <td class="p-4 font-bold not-italic">Puma Energy</td>
-                            <td class="p-4">0.897 - 0.947</td>
-                            <td class="p-4">1.037 - 1.127</td>
-                            <td class="p-4">0.927 - 0.977</td>
+                            <td class="p-4 font-bold">Puma Energy</td>
+                            <td class="p-4 font-mono">0.897 - 0.947</td>
+                            <td class="p-4 font-mono">1.037 - 1.127</td>
                         </tr>
                         <tr>
-                            <td class="p-4 font-bold not-italic">Shell (Sol PR)</td>
-                            <td class="p-4">0.907 - 0.957</td>
-                            <td class="p-4">1.047 - 1.137</td>
-                            <td class="p-4">0.937 - 0.987</td>
+                            <td class="p-4 font-bold">Shell (Sol PR)</td>
+                            <td class="p-4 font-mono">0.907 - 0.957</td>
+                            <td class="p-4 font-mono">1.047 - 1.137</td>
                         </tr>
                         <tr>
-                            <td class="p-4 font-bold not-italic">Gulf (TotalEnergies)</td>
-                            <td class="p-4">0.887 - 0.937</td>
-                            <td class="p-4">1.027 - 1.117</td>
-                            <td class="p-4">0.917 - 0.967</td>
+                            <td class="p-4 font-bold">Gulf (TotalEnergies)</td>
+                            <td class="p-4 font-mono">0.887 - 0.937</td>
+                            <td class="p-4 font-mono">1.027 - 1.117</td>
                         </tr>
                         <tr>
-                            <td class="p-4 font-bold not-italic">Best Pet. (Mobil)</td>
-                            <td class="p-4">0.877 - 0.927</td>
-                            <td class="p-4">1.017 - 1.107</td>
-                            <td class="p-4">0.907 - 0.957</td>
+                            <td class="p-4 font-bold">Best Petroleum</td>
+                            <td class="p-4 font-mono">0.877 - 0.927</td>
+                            <td class="p-4 font-mono">1.017 - 1.107</td>
                         </tr>
                     </tbody>
                 </table>
             </div>
         </div>
 
-        <div class="mt-8 p-6 bg-blue-50 rounded-xl border border-blue-100">
-            <h4 class="font-bold text-blue-900 mb-2 underline">Aviso Legal</h4>
-            <p class="text-sm text-blue-800 leading-relaxed">
-                Esta plataforma es una herramienta de visualización de datos basada estrictamente en la información publicada por el <strong>Departamento de Asuntos al Consumidor (DACO)</strong>. Los precios mostrados son rangos oficiales y topes máximos permitidos. Cualquier estación que exceda estos precios está sujeta a multas bajo las órdenes de congelación vigentes.
+        <div class="mt-8 p-6 bg-yellow-50 rounded-xl border border-yellow-200">
+            <h4 class="font-bold text-yellow-800 mb-2 underline">REGLA IMPORTANTE</h4>
+            <p class="text-sm text-yellow-900 leading-relaxed">
+                Ninguna estación puede cobrar por encima del precio máximo establecido por DACO bajo la orden de congelación de márgenes de beneficio. Si el precio en bomba es mayor a los topes arriba mencionados, usted tiene derecho a denunciarlo a través del portal daco.pr.gov.
             </p>
         </div>
     </main>
 
-    <footer class="p-8 text-center text-gray-400 text-xs text-blue-900 font-semibold underline">
-        <a href="https://www.daco.pr.gov/">VISITAR PORTAL OFICIAL DE DACO</a>
+    <footer class="p-8 text-center bg-gray-100 text-blue-900 font-bold border-t">
+        <a href="https://www.daco.pr.gov/" target="_blank" class="hover:underline">PORTAL OFICIAL DACO.PR.GOV</a>
     </footer>
 </body>
 </html>
