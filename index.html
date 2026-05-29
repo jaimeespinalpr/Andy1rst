@@ -3,114 +3,119 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>GasolinaPR - Precios en Vivo</title>
+    <title>DACO - Monitoreo de Precios de Gasolina</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
-        .glass { background: rgba(255, 255, 255, 0.95); backdrop-filter: blur(10px); }
-        .tab-active { border-bottom: 3px solid #ef4444; color: #ef4444; }
+        .branding-blue { background-color: #003366; }
+        .branding-gold { color: #ccaa00; }
+        .border-gold { border-color: #ccaa00; }
     </style>
 </head>
-<body class="bg-gray-100 min-h-screen">
-    <!-- Header -->
-    <nav class="bg-red-600 text-white p-4 sticky top-0 z-50 shadow-lg">
-        <div class="container mx-auto flex justify-between items-center">
-            <h1 class="text-2xl font-bold flex items-center gap-2">
-                <i class="fas fa-gas-pump"></i> GasolinaPR
-            </h1>
-            <div class="text-sm bg-red-700 px-3 py-1 rounded-full">
-                Promedio Hoy: $0.89/L
+<body class="bg-slate-50 min-h-screen font-sans">
+    <!-- Header Institucional -->
+    <nav class="branding-blue text-white p-6 shadow-xl border-b-4 border-gold">
+        <div class="container mx-auto">
+            <div class="flex flex-col md:flex-row justify-between items-center gap-4">
+                <div class="flex items-center gap-3">
+                    <i class="fas fa-balance-scale text-3xl branding-gold"></i>
+                    <div>
+                        <h1 class="text-xl font-bold tracking-tight">DACO</h1>
+                        <p class="text-xs uppercase tracking-widest text-blue-200">Departamento de Asuntos al Consumidor</p>
+                    </div>
+                </div>
+                <div class="text-right">
+                    <span class="bg-blue-900 px-4 py-2 rounded-lg border border-blue-700 text-sm">
+                        <i class="far fa-calendar-alt mr-2"></i> Monitoreo: Datos en Vivo (DACO)
+                    </span>
+                </div>
             </div>
         </div>
     </nav>
 
-    <!-- Main App -->
-    <main class="container mx-auto p-4">
-        <!-- Search & Filter -->
-        <div class="mb-6 flex flex-col md:flex-row gap-4">
-            <input type="text" id="searchInput" placeholder="Buscar por pueblo..." class="w-full p-4 rounded-xl shadow-sm border-none outline-red-500 text-lg">
-            <select id="brandFilter" class="p-4 rounded-xl shadow-sm bg-white border-none text-lg">
-                <option value="all">Todas las marcas</option>
-                <option value="Puma">Puma</option>
-                <option value="Gulf">Gulf</option>
-                <option value="Shell">Shell</option>
-                <option value="Mobil">Mobil</option>
-                <option value="Ecomax">Ecomax</option>
-            </select>
+    <main class="container mx-auto p-4 md:p-8">
+        <!-- Dashboard de Topes -->
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-12">
+            <div class="bg-white p-6 rounded-xl shadow-sm border-t-4 border-blue-600">
+                <p class="text-gray-500 text-sm font-bold uppercase mb-2">Precio Máximo Regular</p>
+                <div class="flex items-baseline gap-2">
+                    <span class="text-4xl font-black text-slate-800">$0.95</span>
+                    <span class="text-gray-400">/litro</span>
+                </div>
+                <p class="text-xs text-green-600 mt-2"><i class="fas fa-check-circle"></i> Vigente hoy</p>
+            </div>
+            <div class="bg-white p-6 rounded-xl shadow-sm border-t-4 border-blue-600">
+                <p class="text-gray-500 text-sm font-bold uppercase mb-2">Precio Máximo Premium</p>
+                <div class="flex items-baseline gap-2">
+                    <span class="text-4xl font-black text-slate-800">$1.13</span>
+                    <span class="text-gray-400">/litro</span>
+                </div>
+                <p class="text-xs text-green-600 mt-2"><i class="fas fa-check-circle"></i> Vigente hoy</p>
+            </div>
+            <div class="bg-white p-6 rounded-xl shadow-sm border-t-4 border-gold">
+                <p class="text-gray-500 text-sm font-bold uppercase mb-2">Reportar Abuso</p>
+                <a href="https://www.daco.pr.gov/servicios/radicacion-de-querellas/" target="_blank" class="inline-block bg-amber-500 hover:bg-amber-600 text-white font-bold py-2 px-6 rounded-lg transition text-sm">
+                    Radicar Querella Online
+                </a>
+            </div>
         </div>
 
-        <!-- Gas Stations Grid -->
-        <div id="stationsGrid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            <!-- Stations will be rendered here -->
+        <!-- Tabla de Mayoristas -->
+        <div class="bg-white rounded-2xl shadow-lg overflow-hidden border border-gray-200">
+            <div class="branding-blue p-4 text-white font-bold flex justify-between">
+                <span>Rango de Precios por Mayorista (Oficial DACO)</span>
+                <span class="text-xs opacity-75">Fuente: daco.pr.gov</span>
+            </div>
+            <div class="overflow-x-auto">
+                <table class="w-full text-left">
+                    <thead class="bg-gray-100 text-gray-600 text-sm uppercase">
+                        <tr>
+                            <th class="p-4">Mayorista</th>
+                            <th class="p-4">Regular (L)</th>
+                            <th class="p-4">Premium (L)</th>
+                            <th class="p-4">Diesel (L)</th>
+                        </tr>
+                    </thead>
+                    <tbody class="divide-y divide-gray-100 italic text-slate-700">
+                        <tr>
+                            <td class="p-4 font-bold not-italic">Puma Energy</td>
+                            <td class="p-4">0.897 - 0.947</td>
+                            <td class="p-4">1.037 - 1.127</td>
+                            <td class="p-4">0.927 - 0.977</td>
+                        </tr>
+                        <tr>
+                            <td class="p-4 font-bold not-italic">Shell (Sol PR)</td>
+                            <td class="p-4">0.907 - 0.957</td>
+                            <td class="p-4">1.047 - 1.137</td>
+                            <td class="p-4">0.937 - 0.987</td>
+                        </tr>
+                        <tr>
+                            <td class="p-4 font-bold not-italic">Gulf (TotalEnergies)</td>
+                            <td class="p-4">0.887 - 0.937</td>
+                            <td class="p-4">1.027 - 1.117</td>
+                            <td class="p-4">0.917 - 0.967</td>
+                        </tr>
+                        <tr>
+                            <td class="p-4 font-bold not-italic">Best Pet. (Mobil)</td>
+                            <td class="p-4">0.877 - 0.927</td>
+                            <td class="p-4">1.017 - 1.107</td>
+                            <td class="p-4">0.907 - 0.957</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <div class="mt-8 p-6 bg-blue-50 rounded-xl border border-blue-100">
+            <h4 class="font-bold text-blue-900 mb-2 underline">Aviso Legal</h4>
+            <p class="text-sm text-blue-800 leading-relaxed">
+                Esta plataforma es una herramienta de visualización de datos basada estrictamente en la información publicada por el <strong>Departamento de Asuntos al Consumidor (DACO)</strong>. Los precios mostrados son rangos oficiales y topes máximos permitidos. Cualquier estación que exceda estos precios está sujeta a multas bajo las órdenes de congelación vigentes.
+            </p>
         </div>
     </main>
 
-    <!-- App Logic -->
-    <script>
-        const stations = [
-            { id: 1, name: "Puma Energy", town: "San Juan", regular: 0.88, premium: 0.98, brand: "Puma", address: "Av. Kennedy" },
-            { id: 2, name: "Gulf Station", town: "Guaynabo", regular: 0.87, premium: 0.97, brand: "Gulf", address: "Calle Marginal" },
-            { id: 3, name: "Shell V-Power", town: "Bayamón", regular: 0.89, premium: 1.02, brand: "Shell", address: "Carr. #2" },
-            { id: 4, name: "Mobil", town: "Caguas", regular: 0.88, premium: 0.99, brand: "Mobil", address: "Av. Degetau" },
-            { id: 5, name: "Ecomax Plus", town: "Ponce", regular: 0.86, premium: 0.95, brand: "Ecomax", address: "Las Américas" },
-            { id: 6, name: "Puma 24/7", town: "Carolina", regular: 0.89, premium: 0.99, brand: "Puma", address: "Aeropuerto" }
-        ];
-
-        function renderStations(filtered) {
-            const grid = document.getElementById('stationsGrid');
-            grid.innerHTML = '';
-            
-            filtered.forEach(s => {
-                grid.innerHTML += `
-                    <div class="glass p-6 rounded-2xl shadow-md border-l-8 border-red-500 transition hover:scale-102">
-                        <div class="flex justify-between items-start mb-4">
-                            <div>
-                                <h3 class="font-bold text-xl text-gray-800">${s.name}</h3>
-                                <p class="text-gray-500"><i class="fas fa-map-marker-alt"></i> ${s.town}, PR</p>
-                            </div>
-                            <span class="bg-red-100 text-red-600 px-3 py-1 rounded-full text-sm font-bold">${s.brand}</span>
-                        </div>
-                        
-                        <div class="grid grid-cols-2 gap-4 mb-6">
-                            <div class="bg-gray-50 p-3 rounded-xl text-center">
-                                <p class="text-xs text-gray-400 uppercase">Regular</p>
-                                <p class="text-2xl font-black text-gray-700">$${s.regular}</p>
-                            </div>
-                            <div class="bg-gray-50 p-3 rounded-xl text-center">
-                                <p class="text-xs text-gray-400 uppercase">Premium</p>
-                                <p class="text-2xl font-black text-red-600">$${s.premium}</p>
-                            </div>
-                        </div>
-
-                        <button onclick="window.open('https://www.google.com/maps/search/${s.name}+${s.town}')" class="w-full bg-gray-800 text-white py-3 rounded-xl font-bold hover:bg-black transition">
-                            Como llegar <i class="fas fa-external-link-alt ml-2"></i>
-                        </button>
-                    </div>
-                `;
-            });
-        }
-
-        // Search and Filter logic
-        const input = document.getElementById('searchInput');
-        const filter = document.getElementById('brandFilter');
-
-        function update() {
-            const term = input.value.toLowerCase();
-            const brand = filter.value;
-            
-            const filtered = stations.filter(s => {
-                const matchesSearch = s.town.toLowerCase().includes(term) || s.name.toLowerCase().includes(term);
-                const matchesBrand = brand === 'all' || s.brand === brand;
-                return matchesSearch && matchesBrand;
-            });
-            renderStations(filtered);
-        }
-
-        input.oninput = update;
-        filter.onchange = update;
-
-        // Initial render
-        renderStations(stations);
-    </script>
+    <footer class="p-8 text-center text-gray-400 text-xs text-blue-900 font-semibold underline">
+        <a href="https://www.daco.pr.gov/">VISITAR PORTAL OFICIAL DE DACO</a>
+    </footer>
 </body>
 </html>
